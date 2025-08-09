@@ -1,42 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Birthday Design System - Cute, heartfelt, and celebratory */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Birthday Color Palette */
+    --background: 350 100% 98%;
+    --foreground: 340 15% 15%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 350 100% 97%;
+    --card-foreground: 340 15% 20%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 350 100% 98%;
+    --popover-foreground: 340 15% 15%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Pink Theme */
+    --primary: 330 81% 60%; /* Hot Pink #FF69B4 */
+    --primary-foreground: 0 0% 100%;
+    --primary-light: 350 100% 88%; /* Light Pink #FFC0CB */
+    
+    /* Gold Accent */
+    --secondary: 51 100% 50%; /* Gold #FFD700 */
+    --secondary-foreground: 340 15% 15%;
+    
+    /* Love Red */
+    --accent: 0 100% 50%; /* Red #FF0000 */
+    --accent-foreground: 0 0% 100%;
+    
+    /* Heart Pink */
+    --heart: 350 100% 88%; /* Pink #FFC0CB */
+    --heart-deep: 330 81% 60%; /* Hot Pink */
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --muted: 350 30% 95%;
+    --muted-foreground: 340 15% 45%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 350 30% 90%;
+    --input: 350 30% 95%;
+    --ring: 330 81% 60%;
 
-    --radius: 0.5rem;
+    --radius: 1rem;
+
+    /* Birthday Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(var(--primary-light)), hsl(var(--secondary)) 50%, hsl(var(--primary)));
+    --gradient-love: linear-gradient(45deg, hsl(var(--accent)), hsl(var(--primary)));
+    --gradient-celebration: linear-gradient(180deg, hsl(var(--background)), hsl(var(--primary-light)));
+
+    /* Animations */
+    --transition-magical: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 
     --sidebar-background: 0 0% 98%;
 
@@ -100,6 +118,144 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-inter;
+    font-family: 'Inter', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Poppins', sans-serif;
+  }
+}
+
+@layer components {
+  /* Magical Birthday Animations */
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-bounce-gentle {
+    animation: bounceGentle 2s ease-in-out infinite;
+  }
+
+  .animate-pulse-heart {
+    animation: pulseHeart 1.5s ease-in-out infinite;
+  }
+
+  .animate-confetti {
+    animation: confetti 3s ease-out forwards;
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 1s ease-out forwards;
+    opacity: 0;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.8s ease-out forwards;
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  /* Floating Hearts Background */
+  .floating-hearts {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+    overflow: hidden;
+  }
+
+  .floating-heart {
+    position: absolute;
+    color: hsl(var(--heart));
+    font-size: 1.5rem;
+    animation: floatUp 8s linear infinite;
+    opacity: 0.7;
+  }
+
+  /* Hero Text Gradient */
+  .text-gradient-hero {
+    background: var(--gradient-hero);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .text-gradient-love {
+    background: var(--gradient-love);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Birthday Button Variants */
+  .btn-celebration {
+    @apply bg-gradient-to-r from-primary via-secondary to-primary text-primary-foreground font-medium px-8 py-4 rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300;
+  }
+
+  .btn-heart {
+    @apply bg-gradient-to-r from-accent to-primary text-accent-foreground font-medium px-6 py-3 rounded-full shadow-md hover:shadow-lg transform hover:scale-105 transition-all duration-300;
+  }
+
+  /* Photo Carousel Styling */
+  .photo-frame {
+    @apply bg-white rounded-3xl shadow-xl p-2 transform hover:scale-105 transition-all duration-300;
+    box-shadow: 0 20px 40px rgba(255, 192, 203, 0.3);
+  }
+
+  /* Music Player Styling */
+  .music-control {
+    @apply bg-white/90 backdrop-blur-sm rounded-full p-3 shadow-lg hover:shadow-xl transform hover:scale-110 transition-all duration-300;
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  33% { transform: translateY(-10px) rotate(1deg); }
+  66% { transform: translateY(-5px) rotate(-1deg); }
+}
+
+@keyframes bounceGentle {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes pulseHeart {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
+@keyframes confetti {
+  0% { transform: translateY(-100vh) rotateZ(0deg); opacity: 1; }
+  100% { transform: translateY(100vh) rotateZ(720deg); opacity: 0; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(100vh) translateX(0) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.7;
+  }
+  90% {
+    opacity: 0.7;
+  }
+  100% {
+    transform: translateY(-10vh) translateX(20px) rotate(360deg);
+    opacity: 0;
   }
 }
