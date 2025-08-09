@@ -1,42 +1,23 @@
-import { useState, useRef, useEffect } from 'react';
-import { Play, Pause, Volume2, VolumeX } from 'lucide-react';
+import { useState, useRef } from "react";
+import { Play, Pause, Volume2, VolumeX } from "lucide-react";
 
 const MusicPlayer = () => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [isMuted, setIsMuted] = useState(false);
   const audioRef = useRef<HTMLAudioElement>(null);
 
-  useEffect(() => {
-    // Auto-play attempt (will work if user has interacted with the page)
-    const playAudio = async () => {
-      try {
-        if (audioRef.current) {
-          await audioRef.current.play();
-          setIsPlaying(true);
-        }
-      } catch (error) {
-        console.log("Auto-play prevented by browser");
-      }
-    };
-
-    // Delay to let the page load
-    const timer = setTimeout(playAudio, 2000);
-    return () => clearTimeout(timer);
-  }, []);
-
   const togglePlay = async () => {
-    if (audioRef.current) {
-      try {
-        if (isPlaying) {
-          audioRef.current.pause();
-          setIsPlaying(false);
-        } else {
-          await audioRef.current.play();
-          setIsPlaying(true);
-        }
-      } catch (error) {
-        console.log("Playback failed");
+    if (!audioRef.current) return;
+    try {
+      if (isPlaying) {
+        audioRef.current.pause();
+        setIsPlaying(false);
+      } else {
+        await audioRef.current.play();
+        setIsPlaying(true);
       }
+    } catch (error) {
+      console.log("Playback failed:", error);
     }
   };
 
@@ -53,21 +34,21 @@ const MusicPlayer = () => {
       <audio
         ref={audioRef}
         loop
+        preload="auto"
         onEnded={() => setIsPlaying(false)}
         onPause={() => setIsPlaying(false)}
         onPlay={() => setIsPlaying(true)}
       >
-        {/* Placeholder for birthday music - users can replace with their own */}
-        <source src="/birthday-music.mp3" type="audio/mpeg" />
+        <source src="/happy.mp3" type="audio/mpeg" />
       </audio>
 
       {/* Music Controls */}
       <div className="flex space-x-2">
-        {/* Play/Pause Button */}
+        {/* Play/Pause */}
         <button
           onClick={togglePlay}
           className="music-control group"
-          title={isPlaying ? 'Pause Music' : 'Play Music'}
+          title={isPlaying ? "Pause Music" : "Play Music"}
         >
           {isPlaying ? (
             <Pause className="w-6 h-6 text-primary group-hover:text-accent transition-colors" />
@@ -76,11 +57,11 @@ const MusicPlayer = () => {
           )}
         </button>
 
-        {/* Mute/Unmute Button */}
+        {/* Mute/Unmute */}
         <button
           onClick={toggleMute}
           className="music-control group"
-          title={isMuted ? 'Unmute Music' : 'Mute Music'}
+          title={isMuted ? "Unmute Music" : "Mute Music"}
         >
           {isMuted ? (
             <VolumeX className="w-6 h-6 text-primary group-hover:text-accent transition-colors" />

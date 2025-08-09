@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react';
-import heroBackground from '@/assets/hero-background.jpg';
+import { useState, useEffect } from "react";
+import heroBackground from "@/assets/hero-background.jpg";
 
 const HeroBanner = () => {
   const [showConfetti, setShowConfetti] = useState(false);
@@ -14,17 +14,19 @@ const HeroBanner = () => {
     id: i,
     left: `${Math.random() * 100}%`,
     delay: `${Math.random() * 3}s`,
-    color: ['#FFC0CB', '#FFD700', '#FF69B4', '#FF0000'][Math.floor(Math.random() * 4)],
+    color: ["#FFC0CB", "#FFD700", "#FF69B4", "#FF0000"][
+      Math.floor(Math.random() * 4)
+    ],
   }));
 
   return (
-    <section 
+    <section
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
       style={{
         backgroundImage: `linear-gradient(rgba(255, 192, 203, 0.3), rgba(255, 215, 0, 0.2)), url(${heroBackground})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundAttachment: 'fixed'
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundAttachment: "fixed",
       }}
     >
       {/* Confetti Animation */}
@@ -38,7 +40,7 @@ const HeroBanner = () => {
                 left: piece.left,
                 backgroundColor: piece.color,
                 animationDelay: piece.delay,
-                borderRadius: Math.random() > 0.5 ? '50%' : '0',
+                borderRadius: Math.random() > 0.5 ? "50%" : "0",
               }}
             />
           ))}
@@ -48,14 +50,15 @@ const HeroBanner = () => {
       {/* Hero Content */}
       <div className="relative z-20 text-center px-4 max-w-4xl mx-auto">
         <div className="animate-fade-in">
-          <h1 className="font-poppins text-4xl sm:text-6xl lg:text-8xl font-bold mb-4 text-gradient-hero leading-tight">
+          <h1 className="font-poppins text-4xl sm:text-6xl lg:text-8xl font-bold mb-4 leading-tight bg-gradient-to-r from-red-600 via-pink-500 to-yellow-400 bg-clip-text text-transparent">
             Happy Birthday
           </h1>
           <h2 className="font-poppins text-2xl sm:text-4xl lg:text-6xl font-semibold mb-6 text-gradient-love">
             Chotiii Devii 🎉❤️
           </h2>
           <p className="text-lg sm:text-xl text-primary-foreground bg-white/20 backdrop-blur-sm rounded-2xl px-6 py-4 mx-auto max-w-md animate-bounce-gentle">
-            The most special day for the most special sister! ✨
+            The most special day for the most special sister! ✨ Happy Birthday
+            Chotti Devii !! 🎂.
           </p>
         </div>
 
@@ -63,10 +66,16 @@ const HeroBanner = () => {
         <div className="absolute -top-20 left-1/4 animate-float">
           <div className="text-6xl">🎈</div>
         </div>
-        <div className="absolute -top-16 right-1/4 animate-float" style={{ animationDelay: '1s' }}>
+        <div
+          className="absolute -top-16 right-1/4 animate-float"
+          style={{ animationDelay: "1s" }}
+        >
           <div className="text-6xl">🎈</div>
         </div>
-        <div className="absolute -top-24 left-1/2 animate-float" style={{ animationDelay: '2s' }}>
+        <div
+          className="absolute -top-24 left-1/2 animate-float"
+          style={{ animationDelay: "2s" }}
+        >
           <div className="text-6xl">🎂</div>
         </div>
       </div>

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState } from "react";
 
 const Footer = () => {
   const [heartPulse, setHeartPulse] = useState(false);
@@ -9,17 +9,19 @@ const Footer = () => {
         {/* Main Footer Message */}
         <div className="mb-8">
           <p className="text-lg sm:text-xl font-medium text-foreground mb-4">
-            Hope your special day is filled with all the happiness you deserve! 🌟
+            Hope your special day is filled with all the happiness you deserve!
+            🌟
           </p>
           <p className="text-sm text-muted-foreground">
-            May this year bring you countless blessings and beautiful moments! ✨
+            May this year bring you countless blessings and beautiful moments!
+            ✨
           </p>
         </div>
 
         {/* Heart with Brother Attribution */}
         <div className="flex items-center justify-center space-x-2 mb-6">
           <span className="text-lg text-muted-foreground">Made with</span>
-          
+
           <button
             onMouseEnter={() => setHeartPulse(true)}
             onMouseLeave={() => setHeartPulse(false)}
@@ -32,7 +34,7 @@ const Footer = () => {
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
               className={`text-accent transition-all duration-300 ${
-                heartPulse ? 'animate-pulse-heart scale-125' : ''
+                heartPulse ? "animate-pulse-heart scale-125" : ""
               }`}
             >
               <path
@@ -41,9 +43,11 @@ const Footer = () => {
               />
             </svg>
           </button>
-          
+
           <span className="text-lg text-muted-foreground">by your</span>
-          <span className="text-lg font-semibold text-primary">amazing brother</span>
+          <span className="text-lg font-semibold text-primary">
+            amazing brother
+          </span>
         </div>
 
         {/* Birthday Wishes */}
@@ -55,17 +59,44 @@ const Footer = () => {
 
         {/* Decorative Elements */}
         <div className="flex justify-center space-x-6 mb-6">
-          <span className="text-2xl animate-bounce" style={{ animationDelay: '0s' }}>🎈</span>
-          <span className="text-2xl animate-bounce" style={{ animationDelay: '0.3s' }}>🌟</span>
-          <span className="text-2xl animate-bounce" style={{ animationDelay: '0.6s' }}>🎁</span>
-          <span className="text-2xl animate-bounce" style={{ animationDelay: '0.9s' }}>🦋</span>
-          <span className="text-2xl animate-bounce" style={{ animationDelay: '1.2s' }}>🌸</span>
+          <span
+            className="text-2xl animate-bounce"
+            style={{ animationDelay: "0s" }}
+          >
+            🎈
+          </span>
+          <span
+            className="text-2xl animate-bounce"
+            style={{ animationDelay: "0.3s" }}
+          >
+            🌟
+          </span>
+          <span
+            className="text-2xl animate-bounce"
+            style={{ animationDelay: "0.6s" }}
+          >
+            🎁
+          </span>
+          <span
+            className="text-2xl animate-bounce"
+            style={{ animationDelay: "0.9s" }}
+          >
+            🦋
+          </span>
+          <span
+            className="text-2xl animate-bounce"
+            style={{ animationDelay: "1.2s" }}
+          >
+            🌸
+          </span>
         </div>
 
         {/* Copyright */}
         <div className="text-sm text-muted-foreground">
-          <p>© 2024 • A birthday surprise made with love</p>
-          <p className="mt-1">🎂 Every sister deserves to feel this special 💕</p>
+          <p>• A birthday surprise made with love</p>
+          <p className="mt-1">
+            🎂 Every sister deserves to feel this special 💕
+          </p>
         </div>
 
         {/* Call to Action */}

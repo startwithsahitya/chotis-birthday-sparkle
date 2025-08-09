@@ -1,14 +1,14 @@
-import { useState } from 'react';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
-import photo1 from '@/assets/photo-placeholder-1.jpg';
-import photo2 from '@/assets/photo-placeholder-2.jpg';
-import photo3 from '@/assets/photo-placeholder-3.jpg';
+import { useState } from "react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import photo1 from "@/assets/p1.png";
+import photo2 from "@/assets/p2.png";
+import photo3 from "@/assets/p3.png";
 
 const PhotoCarousel = () => {
   const photos = [
-    { src: photo1, caption: "Our amazing adventures together! 🌟" },
-    { src: photo2, caption: "Memories that make my heart full ❤️" },
-    { src: photo3, caption: "Sisters forever and always! 👭" },
+    { src: photo1, caption: "Cute 🌟" },
+    { src: photo2, caption: "Bachhi ❤️" },
+    { src: photo3, caption: "Keep that smile 👭" },
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -25,7 +25,7 @@ const PhotoCarousel = () => {
     <section className="py-20 px-4 bg-gradient-to-b from-primary-light/30 to-background">
       <div className="max-w-4xl mx-auto">
         <h2 className="font-poppins text-3xl sm:text-5xl font-bold text-center mb-12 text-gradient-hero animate-slide-up">
-          Our Beautiful Memories 📸
+          Photos nhi hai toh aapki hi lgadi 🙏
         </h2>
 
         <div className="relative max-w-2xl mx-auto">
@@ -68,8 +68,8 @@ const PhotoCarousel = () => {
                 onClick={() => setCurrentIndex(index)}
                 className={`w-3 h-3 rounded-full transition-all duration-300 ${
                   index === currentIndex
-                    ? 'bg-primary scale-125'
-                    : 'bg-primary/30 hover:bg-primary/60'
+                    ? "bg-primary scale-125"
+                    : "bg-primary/30 hover:bg-primary/60"
                 }`}
               />
             ))}
